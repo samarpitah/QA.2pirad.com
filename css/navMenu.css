@@ -1,0 +1,58 @@
+	#menu {
+		height:32px;
+		width: 100%;
+		background-color: #000000;
+		border-top:1px solid #000000;
+		
+}
+
+#navMenu {
+	margin:0;
+	padding:0;
+	list-style:none;
+	font-family:arial;
+	text-align:center;
+	line-height:28px;
+}
+
+	#navMenu li {
+		float:right;
+		
+		background:url(/images/content/default.jpg) no-repeat center center;	/* default background image	*/
+		width:120px;							/* width and height of the menu item */
+		height:30px;
+		border-left:1px solid #111;				/* simulate pixel perfect using border */
+		border-right:1px solid #333;
+		//border-top:1px solid #555;
+		border-bottom:1px solid #333;
+		position:relative;			/* must set it as relative, because .hover class top and left with absolute position will be positioned according to li.	*/
+	}
+
+	#navMenu li a {
+		z-index:20;		/* z-index must be higher than .hover class */
+		font-size:12px;
+		text-decoration: none;
+		display:block;	/* display as block and set the height according to the height of the menu to make the whole LI clickable	*/
+		height:30px;
+		position:relative;
+		color:#ffffff;
+	}
+
+
+
+
+ 	#navMenu li .hover {
+		background:url(/images/content/over.jpg) no-repeat center center;		/* mouseover image	*/
+		position:absolute;	/* must be postion absolute 	*/
+		width:120px;	/*	width, height, left and top to fill the whole LI item	*/
+		height:30px;
+		left:0;
+		top:0;
+		z-index:0;		/* display under the Anchor tag	*/
+		display:none;	/* hide it by default	*/
+	}
+
+	#navMenu li.selected {
+		background:url(/images/content/selected.jpg) no-repeat center center;	/* selected image	*/
+	}
+

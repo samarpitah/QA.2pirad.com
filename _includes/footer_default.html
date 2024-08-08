@@ -1,0 +1,113 @@
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.5.1.min.js">\x3C/script>')</script>
+
+  <script src="/js/jquery.roundabout.js"></script>
+
+
+  <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script src="/js/plugins.js"></script>
+  <script src="/js/script.js"></script>
+
+   <script type="text/javascript">
+     $(document).ready(function (){
+        $('.projHighlights').hide();
+        equalHeight($(".left"));
+        $('.projHighlights:eq(0)').show();
+        $(".col2").css('height', $(".col").outerHeight());
+
+		sliderIndex = 0;
+        
+  	    //$('.item:eq(0)').addClass('colSel');
+
+	    $('#domainSlider').draggable({ axis: 'y', containment: 'parent' , cursor: 'crosshair' },
+			{start: function(){
+				     $('#domainSlider').addClass('grabbing');
+	    	        }
+    	
+			},
+		
+		{stop: function(){
+		     $('#domainSlider').removeClass('grabbing');
+	        }
+
+	}
+
+	    
+	    );
+  	    $('#domainSlider').css('height', $('.item:eq(0)').css('height'));
+   		$('.item:eq(0) > p').css('color', '#444');
+
+  	    $('.item').droppable({
+  	    	drop: function( event, ui ) {
+ 	           var ind = $(this).index() - 1;
+ 	           if (sliderIndex != ind) {
+ 	 	           	sliderIndex = ind;
+	           		var val = '.projHighlights:eq(' + ind + ')';
+	           		$('.projHighlights').hide();
+	           		$(val).show("slow");
+	         	    $('#domainSlider').css('height', $(this).css('height'));	           		
+	           		$('.item > p').css('color', '#8c939b');
+	           		$('.item:eq(' + ind + ') > p').css('color', '#444');
+	           } 
+	           	$('#domainSlider').animate({"top": $(this).position().top}, "slow");
+ 	    	}
+  	    });
+  	    
+  	    $('.item').click(function() {
+	        var ind = $(this).index() - 1;
+	        sliderIndex = ind;
+	        var val = '.projHighlights:eq(' + ind + ')';
+       		$('.projHighlights:visible').hide();
+       		$('#domainSlider').animate({"top": $(this).position().top}, "slow");
+     	    $('#domainSlider').css('height', $(this).css('height'));	           		
+       		$(val).show("slow");
+       		//$(val).animate({height: "show"}, 1500, "easeInQuad", function(){});;
+       		$('.item > p').css('color', '#8c939b');
+       		$('.item:eq(' + ind + ') > p').css('color', '#444');
+  	    });
+  	    
+  	    //$( "#domainSlider" ).draggable({ snap: '.item', snapMode: 'outer' });
+
+  	    
+	  	$('#navMenu li').append('<div class="hover"><\/div>');
+	  	$('#navMenu li').hover(function() {$(this).children('div').fadeIn('1000');},
+	  		function() {
+	  			$(this).children('div').fadeOut('1000');}).click (function () {
+					//Add selected class if user clicked on it
+					$(this).addClass('selected');
+	  		});
+
+	  	$('#{{ page.title }}').addClass('selected');
+	  	$('#myRoundabout').show();
+	  	$('ul#myRoundabout').roundabout({
+	  		minOpacity: 0.2,
+	  		btnNext: '#next',
+	        btnPrev: '#previous'
+	    });
+
+	       
+	    
+	  });
+
+
+   </script>
+
+
+
+  <!-- end scripts-->
+
+
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
+  <![endif]-->
+
+
+</body>
+</html>

@@ -1,0 +1,1004 @@
+/**
+ * HTML5 âœ° Boilerplate
+ *
+ * style.css contains a reset, font normalization and some base styles.
+ *
+ * Credit is left where credit is due.
+ * Much inspiration was taken from these projects:
+ * - yui.yahooapis.com/2.8.1/build/base/base.css
+ * - camendesign.com/design/
+ * - praegnanz.de/weblog/htmlcssjs-kickstart
+ */
+
+
+/**
+ * html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
+ * v1.6.1 2010-09-17 | Authors: Eric Meyer & Richard Clark
+ * html5doctor.com/html-5-reset-stylesheet/
+ */
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+blockquote, q { quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after { content: ''; content: none; }
+
+ins { background-color: #ff9; color: #000; text-decoration: none; }
+
+mark { background-color: #ff9; color: #000; font-style: italic; font-weight: bold; }
+
+del { text-decoration: line-through; }
+
+abbr[title], dfn[title] { border-bottom: 1px dotted; cursor: help; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+
+input, select { vertical-align: middle; }
+
+
+/**
+ * Font normalization inspired by YUI Library's fonts.css: developer.yahoo.com/yui/
+ */
+
+body { font:13px/1.231 sans-serif; *font-size:small; } /* Hack retained to preserve specificity */
+select, input, textarea, button { font:99% sans-serif; }
+
+/* Normalize monospace sizing:
+   en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome */
+pre, code, kbd, samp { font-family: monospace, sans-serif; }
+
+
+/**
+ * Minimal base styles.
+ */
+
+/* Always force a scrollbar in non-IE */
+html { overflow-y: scroll; }
+
+/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active { outline: none; }
+
+ul, ol { margin-left: 2em; }
+ol { list-style-type: decimal; }
+
+/* Remove margins for navigation lists */
+nav ul, nav li { margin: 0; list-style:none; list-style-image: none; }
+
+small { font-size: 85%; }
+strong, th { font-weight: bold; }
+
+td { vertical-align: top; }
+
+/* Set sub, sup without affecting line-height: gist.github.com/413930 */
+sub, sup { font-size: 75%; line-height: 0; position: relative; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+pre {
+  /* www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */
+  white-space: pre; white-space: pre-wrap; word-wrap: break-word;
+  padding: 15px;
+}
+
+textarea { overflow: auto; } /* www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
+
+.ie6 legend, .ie7 legend { margin-left: -7px; } 
+
+/* Align checkboxes, radios, text inputs with their label by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
+input[type="radio"] { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: bottom; }
+.ie7 input[type="checkbox"] { vertical-align: baseline; }
+.ie6 input { vertical-align: text-bottom; }
+
+/* Hand cursor on clickable input elements */
+label, input[type="button"], input[type="submit"], input[type="image"], button { cursor: pointer; }
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea { margin: 0; }
+
+/* Colors for form validity */
+input:valid, textarea:valid   {  }
+input:invalid, textarea:invalid {
+   border-radius: 1px; -moz-box-shadow: 0px 0px 5px red; -webkit-box-shadow: 0px 0px 5px red; box-shadow: 0px 0px 5px red;
+}
+.no-boxshadow input:invalid, .no-boxshadow textarea:invalid { background-color: #f0dddd; }
+
+
+/* These selection declarations have to be separate
+   No text-shadow: twitter.com/miketaylr/status/12228805301
+   Also: hot pink! */
+::-moz-selection{ background: #c3c3c3; color:#fff; text-shadow: none; }
+::selection { background:#c3c3c3; color:#fff; text-shadow: none; }
+
+/* j.mp/webkit-tap-highlight-color */
+a, a:link { -webkit-tap-highlight-color: #FF5E99; text-decoration:none;}
+
+/* Make buttons play nice in IE:
+   www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+button {  width: auto; overflow: visible; }
+
+/* Bicubic resizing for non-native sized IMG:
+   code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+.ie7 img { -ms-interpolation-mode: bicubic; }
+
+
+body, select, input, textarea {
+  /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */
+  color: #444;
+  background: #fefefe;
+  //background: -webkit-gradient(linear, top, #898989, #cccccc);
+  //background: -moz-linear-gradient(top,  #898989,  #cccccc);
+  background-image: -webkit-linear-gradient(#fcfcfc, #cacaca); /* Chrome 10+, Saf5.1+ */  
+  
+  /* Set your base font here, to apply evenly */
+   font-family: Arial;  
+}
+
+h1 { font: bold 26px/32px Arial; color: #444; margin: 0 0 10px;}
+h2 { font: 22px/24px Arial; color: #444; margin: 0 0 10px;}
+h2 a span { color: #444; }
+h2 a:hover { text-decoration: none; }
+h3 { font: bold 18px/20px Arial; color: #444; margin: 0 0 5px; }
+h4 { font: 14px Arial; color: #444; margin: 0 0 22px;}
+
+
+
+a, a:active, a:visited { color: #ffffff; }
+a:hover { color: #ffbb00; }
+
+#page {
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position:  relative;
+    width:960px;
+    background: #fff;
+}
+
+div#header{
+    padding-bottom:1px;
+    -moz-border-radius: 10px 10px 0 0;
+	-webkit-border-radius: 10px 10px 0 0;
+    border-radius: 10px 10px 0 0;
+    background: -webkit-gradient(linear, top, #ccc, #898989);
+	background: -moz-linear-gradient(top,  #000000,  #898989);
+	background-image: -o-linear-gradient(top, #000000,  #898989); /* Opera 11.10+ */
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #000000),color-stop(1, #898989)); /* Saf4+, Chrome */
+	//background-image: -webkit-linear-gradient(#bababa,  #efefef); /* Chrome 10+, Saf5.1+ */  
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#000000', EndColorStr='#898989'); /* IE6–IE9 */
+}
+
+div#header img {
+	padding: 10px;
+}
+
+div#rotateLogo img:hover {
+	padding: 10px;
+	transform: rotateZ(180deg);
+	-webkit-transform: rotateZ(180deg);
+	-moz-transition: -moz-transform 2s ease-in-out;
+	-webkit-transition: -webkit-transform 2s ease-in-out;
+
+}
+
+div#content{
+}
+
+div#post_content h1 { 
+	font: bold 26px/32px Arial; 
+	color: #444; 
+	width:90%;	
+}
+
+
+
+div#footer{	
+    padding:10px 10px 10px 10px;
+    color: #fff;
+	-moz-border-radius: 0 0 10px 10px;
+	-webkit-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+    font-size:0.825em;
+    background: #898989;
+    background: -webkit-gradient(linear, top, #000000, #898989);
+	background: -moz-linear-gradient(top,  #000000,  #898989);
+	background-image: -o-linear-gradient(top, #000000,  #898989); /* Opera 11.10+ */
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #000000),color-stop(1, #898989)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(#000000,  #898989); /* Chrome 10+, Saf5.1+ */  
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#000000', EndColorStr='#898989'); /* IE6–IE9 */
+}
+
+div#page {
+	/* Applying CSS3 rounded corners: */
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	-moz-box-shadow: 3px 3px 7px #777; 
+	-webkit-box-shadow: 3px 3px 7px #777; 
+	box-shadow: 3px 3px 7px #777; 
+}
+
+/* search form 
+-------------------------------------- */
+.searchform {
+	float:right;
+	margin-right: 10px;
+	margin-top: 20px;
+	display: inline-block;
+	zoom: 1; /* ie7 hack for display:inline-block */
+	*display: inline;
+	border: solid 1px #d2d2d2;
+	padding: 3px 5px;
+	
+	-webkit-border-radius: 2em;
+	-moz-border-radius: 2em;
+	border-radius: 2em;
+
+	-webkit-box-shadow: 0 1px 0px rgba(0,0,0,.1);
+	-moz-box-shadow: 0 1px 0px rgba(0,0,0,.1);
+	box-shadow: 0 1px 0px rgba(0,0,0,.1);
+
+	background: #f1f1f1;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
+	background: -moz-linear-gradient(top,  #fff,  #ededed);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed'); /* ie7 */
+	-ms-filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed'); /* ie8 */
+}
+.searchform input {
+	font: normal 12px/100% Arial, Helvetica, sans-serif;
+}
+.searchform .searchfield {
+	background: #fff;
+	padding: 6px 6px 6px 8px;
+	width: 202px;
+	border: solid 1px #bcbbbb;
+	outline: none;
+
+	-webkit-border-radius: 2em;
+	-moz-border-radius: 2em;
+	border-radius: 2em;
+
+	//-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,.2);
+	//-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.2);
+	//box-shadow: inset 0 1px 2px rgba(0,0,0,.2);
+}
+.searchform .searchbutton {
+	color: #fff;
+	border: solid 1px #494949;
+	font-size: 11px;
+	height: 27px;
+	width: 27px;
+	text-shadow: 0 1px 1px rgba(0,0,0,.6);
+
+	-webkit-border-radius: 2em;
+	-moz-border-radius: 2em;
+	border-radius: 2em;
+
+	background: #5f5f5f;
+	background: -webkit-gradient(top, #9e9e9e, #454545);
+	background: -moz-linear-gradient(top,  #9e9e9e,  #454545);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#9e9e9e', endColorstr='#454545'); /* ie7 */
+	-ms-filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#9e9e9e', endColorstr='#454545'); /* ie8 */
+}
+
+
+/* Simple scalable breadcrumb by Veerle Pieters
+------------------------------------------------------------------*/
+
+
+	#crumbs {
+		height:2.3em;
+		border:1px solid #dedede;
+		margin-top: 25px;
+		}
+	#crumbs ul{
+		list-style-type:none;
+		padding:0;
+		margin:0;
+		}		
+	#crumbs li {
+		float:left;
+		line-height:2.3em;
+		list-style-type:none;
+		padding:0;
+		margin:0;
+		color:#777;
+		padding-left:.75em;
+		}		
+	#crumbs li a {
+		background:url(/images/content/crumbs.gif) no-repeat right center;
+		display:block;
+		padding:0 15px 0 0;
+		}							
+	#crumbs li a:link,
+	#crumbs li a:visited {
+		color:#777;
+		text-decoration:none;
+		}	
+	#crumbs a:link, #crumbs a:visited,	
+	#crumbs li a:hover,
+	#crumbs li a:focus {
+		color:#036;
+		}
+
+
+
+/* mainBanner
+-------------------------------------------------------------------*/
+.mainBanner,  .defaultBody {
+  margin-top: 1px;
+  padding-bottom: 20px;
+}
+
+.mainBanner {
+  background-color: #000000;
+  background: -webkit-gradient(linear, top, #000000, #898989);
+  background: -moz-linear-gradient(top,  #000000, #898989);
+  background-image: -o-linear-gradient(top, #000000, #898989); /* Opera 11.10+ */
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #000000),color-stop(1, #898989)); /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(#000000, #898989); /* Chrome 10+, Saf5.1+ */  
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#000000', EndColorStr='#898989'); /* IE6–IE9 */
+  -ms-filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#898989'); /* ie8 */
+}
+
+.mainBanner .left, .defaultBody .col {
+	float: left;
+	width:27%;
+	position: relative;
+	margin-left:22px;
+	margin-top:20px;
+	padding: 10px 17px 10px 17px;	
+    -moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+    border-radius: 8px;    
+    z-index: 1;  
+}
+
+
+.mainBanner a .left  {   
+	display:block;
+}
+
+.defaultBody .col2 {
+	float: left;
+	width:27%;
+	position: relative;
+	margin-left:22px;
+	margin-top:20px;
+	padding: 10px 17px 10px 17px;	
+    border-left: 1px solid #ffbb00;
+	z-index: 0;
+	
+}
+
+.mainBanner a:hover .left  {   
+	//opacity:1.0;
+	//filter:alpha(opacity=100);
+	//filter: “alpha(opacity100)”;
+	background:#5f727e;	
+   background: rgba(0,0,0,0.25);
+   box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+   -o-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+   -webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+   -moz-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+	
+}
+
+
+.pageHeading {
+	float: left;
+	width:27%;
+	top: -34px;
+	position: relative;
+	margin-left:30px;
+    text-align: justify; 
+}
+
+.pageHeading H3 { 
+	font: 30px/42px Arial; 
+	color: #fff; margin-bottom: -2px; 
+
+}
+
+.pageHeading H3 a{ color: #fff; text-decoration: none;}
+.pageHeading H3 a:hover{ color: #ffbb00; }
+
+
+
+.mainBanner .left H3 { font: 22px/42px Arial; color: #fff; margin-bottom: -2px; }
+.mainBanner .left H3 b{ color:  #ffbb00;  }
+.mainBanner a .left H3 { color: #fff; text-decoration: none;}
+.mainBanner a:hover .left H3 { color: #ffbb00; }
+.mainBanner .left DIV { font: 14px/20px Arial; color: #fff; margin: 0 0 5px 4px; }
+.mainBanner a .left DIV P { font: 14px/20px Arial; color: #fff; margin: 0 0 5px 0px; text-align: justify;  }
+
+.colSel {
+	border: 1px solid #ffbb00; 
+	border-right: 10px solid #ffbb00; 
+	width:113%;
+	//-webkit-border-left-radius: 2em;
+	//-moz-border-top-left-radius: 2em;
+	border-top-left-radius: 1em;
+	border-bottom-left-radius: 1em;
+	-moz-border-radius-topleft: 1em;
+	-moz-border-radius-bottomleft: 1em;
+}
+
+#domainSlider {
+	padding:5px 0 5px 0;
+	position:absolute;
+	width:100%;
+	background: rgba(0,0,0,0.05);
+	cursor:url(https://mail.google.com/mail/images/2/openhand.cur), default !important;
+   box-shadow: 0 2px 6px rgba(0,0,0,0.15), inset 0 1px rgba(255,255,255,0.13), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.13);
+   -o-box-shadow: 0 2px 6px rgba(0,0,0,0.15), inset 0 1px rgba(255,255,255,0.13), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.13);
+   -webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.15), inset 0 1px rgba(255,255,255,0.13), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.13);
+   -moz-box-shadow: 0 2px 6px rgba(0,0,0,0.15), inset 0 1px rgba(255,255,255,0.13), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.13);
+}
+
+#domainSlider.grabbing {
+  //cursor:move;
+  //cursor:webkit-grabbing;
+  //cursor:-moz-grabbing;
+  cursor: url(https://mail.google.com/mail/images/2/closedhand.cur), default !important;
+}
+
+.sliderSelected {
+    color: #444;	
+}
+
+.defaultBody .col H3 { font: 15px/18px Arial; color: #2f2f2f; padding-left: 8px }
+.defaultBody .col .item {padding : 5px 0 15px 0; }
+.defaultBody .col P { font: 11px/13px Arial; color: #8c939b; padding: 0 13px 0 13px; text-align: justify;}
+.defaultBody .colSel P { color: #444; cursor: auto;}
+.defaultBody .col P:hover { color: #444;}
+.defaultBody .col2 P { font: 11px/13px Arial; color: #8c939b; padding: 0 13px 0 13px; text-align: justify;}
+
+
+.defaultBody .col P A, .defaultBody .col2 P A{ color: #8c939b; text-decoration: none !important; }
+.defaultBody .col P A:hover, .defaultBody .col2 P A:hover { color: #8c939b; }
+
+.defaultBody .col .item:hover { cursor: pointer;font-weight:bold;}
+.defaultBody .col2 .projHighlights H3 { font: 15px/18px Arial; color: #2f2f2f; padding-left: 8px }
+
+
+#wrapper-left {
+	width: 60%;
+	padding: 30px 0px;
+	margin-left:30px;
+}
+
+.rotate-10 {
+	-webkit-transform: rotate(-10deg); 
+	-moz-transform: rotate(-10deg); 
+	-o-transform: rotate(-10deg); 
+}
+.rotate-5 {
+	-webkit-transform: rotate(-5deg); 
+	-moz-transform: rotate(-5deg); 
+	-o-transform: rotate(-5deg); 
+}
+.rotate5 {
+	-webkit-transform: rotate(5deg); 
+	-moz-transform: rotate(5deg); 
+	-o-transform: rotate(5deg); 
+}
+.rotate10 {
+	-webkit-transform: rotate(10deg); 
+	-moz-transform: rotate(10deg); 
+	-o-transform: rotate(10deg); 
+}
+/* infobox styling */
+
+
+
+.infobox{
+	float:right;
+	width:250px;
+	padding:10px 5px 5px 5px;
+	margin:20px 30px 30px 20px;
+	position:relative;
+	z-index:90;
+	-webkit-border-radius:2px;
+	-moz-border-radius:2px;
+	border-radius:2px;
+	-webkit-box-shadow:0 0 3px rgba(0,0,0,0.55);
+	-moz-box-shadow:0 0 3px rgba(0,0,0,0.55);
+	box-shadow:0 0 3px rgba(0,0,0,0.55);
+	background:#cccccc;
+	background:-webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
+	background:-moz-linear-gradient(top,#ffffff,#cccccc);
+ 	color: #444;
+	font-size: 90%;
+}
+
+.infobox h3{
+	position:relative;
+	width:282px;
+	color:#fff;
+	padding:10px 0;
+	margin:0 -16px;
+	left:0;
+	z-index:100;
+	-webkit-box-shadow:0 0 3px rgba(0,0,0,0.55);
+	-moz-box-shadow:0 0 3px rgba(0,0,0,0.55);
+	box-shadow:0 0 3px rgba(0,0,0,0.55);
+	background:#5f727e;
+	background:-webkit-gradient(linear, left top, left bottom, from(#5f727e), to(#4D717E));
+	background:-moz-linear-gradient(top,#5f727e,#4D717E);
+	font-size:160%;
+	text-align:center;
+	font-weight:bold;
+}
+
+/* left shadow */
+.infobox:before {
+	content:"\00a0";
+	display:block; /* reduce the damage in FF3.0 */
+	position:absolute;
+	top:49px; /* value = - border-top-width - border-bottom-width */
+	left:-10px; /* controls horizontal position */
+	width:0;
+	height:0;
+	border-width:10px 0 10px 10px; /* vary these values to change the angle of the vertex */
+	border-style:solid;
+	border-color:#4D717E transparent transparent; 
+	z-index:0;
+}
+
+/* right shadow */
+.infobox:after {
+	content:"\00a0";
+	display:block; /* reduce the damage in FF3.0 */
+	position:absolute;
+	top:49px; /* value = - border-top-width - border-bottom-width */
+	right:-10px; /* controls horizontal position */
+	width:0;
+	height:0;
+	border-width:10px 10px 10px 0; /* vary these values to change the angle of the vertex */
+	border-style:solid;
+	border-color:#4D717E transparent transparent; 
+	z-index:0;
+}
+.infobox p{
+	font-size: 12px;
+	line-height: 18px;
+	color:#444;
+	text-align: justify; 
+	padding: 10px;
+	margin:15px 5px 10px 10px;
+}
+.infobox strong{
+	display:block;
+}
+
+
+/* Dock
+   -------------------------------- */
+
+#dock {
+	height: 25px;
+	float: right;
+	position: relative;
+	top: 10px;
+	right: 2px;
+}
+
+#dock .left {
+	width: 3px;
+	height: 25px;
+	background: url('/images/dock.png') no-repeat left top;
+}
+
+#dock .right {
+	width: 3px;
+	height: 25px;
+	background: url('/images/dock.png') no-repeat right top;
+}
+
+#dock ul,
+#dock ul li {
+	list-style-type: none;
+	float:left;
+	margin: 0;
+	padding: 0;
+}
+
+#dock ul {
+	padding: 0 6px;
+	height: 25px;
+}
+
+#dock ul li {
+	padding: 0 6px;
+	position: relative;
+}
+
+#dock ul li a {
+	display: block;
+	padding: 0 5px;
+	color: #fff;
+	text-decoration: none;
+	font-size: 14px;
+	line-height: 22px;
+}
+
+#dock ul li a:hover,
+#dock ul li.selected a {
+	color: #fff;
+	border-bottom: 3px solid #ff9c08;
+}
+
+#dock ul li.selected a {
+	font-weight: bold;
+}
+
+
+
+
+
+
+/* mainpage content 
+-------------------------------------------------------------------*/
+
+#why2PiRad, #values2PiRad {
+	margin: 50px;
+}
+
+/* post related layout
+-------------------------------------------------------------------*/
+
+.snip {
+  padding: 10px 0 30px;
+  font: 16px/25px Arial;
+}
+
+
+div#post_content{
+	margin:auto;
+	padding-top:40px;
+	padding-bottom: 50px;
+	width:94%;
+}
+
+
+#post_content p {font: 16px/25px Arial;}
+
+#post_content a {
+    border: 0 none;
+    //color: #5f727e;
+}
+
+#post_content a:hover {
+    border: 0 none;
+    color: #ffbb00;
+}
+
+
+.about {
+	position: relative; 
+	float:right;
+	width: 130px; 
+	padding: 14px 15px 10px 15px; 
+	background: yellow; 
+	top: -3px; 
+	left: -50px; 
+	margin-right: 20px;
+	line-height: 20px;
+	-webkit-transform: rotate(-5deg); 
+	-moz-transform: rotate(-5deg); 
+	-o-transform: rotate(-5deg); 
+	font-size: 12px; 
+	//font-weight: bold; 
+	color: #403f3f; 
+	background-color: #fefcaf; 
+	background-image: -moz-linear-gradient(top, #fefcaf, #fffeda); 
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #fefcaf),color-stop(1, #fffeda)); 
+  	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fefcaf', EndColorStr='#fffeda'); /* IE6–IE9 */
+  	-ms-filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#fefcaf', endColorstr='#fffeda'); /* ie8 */
+	
+	-moz-box-shadow: 1px 1px 3px rgba(0,0,0,0.25); 
+	-webkit-box-shadow: 1px 1px 3px rgba(0,0,0,0.25); 
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.25);
+}
+
+.about:after {
+    content: url("/images/content/clip.png");
+    left: 80px;
+    position: absolute;
+    top: -9px;
+}
+.about a {
+    border: 0 none;
+    color: #5f727e;
+    white-space: nowrap;
+}
+.about a:hover {
+    color: black;
+}
+
+
+
+
+/* roundabout turntable
+-------------------------------------------------------------------*/
+
+#myRoundabout {
+	width:70%;
+    margin-left: 110px;
+    display:none;
+}
+
+
+#myRoundabout li H3 { font: 21px/24px Arial; color: #444;  }
+#myRoundabout li IMG { vertical-align:text-top; font: 21px/24px Arial; color: #444;  }
+#myRoundabout li b { font: 21px/24px Arial; color: #444;}
+#myRoundabout li { font: 14px/24px Arial; color: #444; margin: 0 0 25px 4px; }
+#myRoundabout li DIV.intro { font: 24px/30px Arial; margin: 0 0 14px 3px; line-height: 29px;}
+#myRoundabout li DIV P { font: 14px/21px Arial; color: #fff; margin: 0 0 25px 0px; }
+#myRoundabout li DIV.intro P { font: 20px/30px Arial; margin: 0 0 0px 0px; line-height: 29px;}
+
+.buttonBar {
+	width:70%;
+    margin-left: 148px;
+}
+
+
+.roundabout-holder { 
+	padding: 10; 
+	height: 20em;
+}
+.roundabout-moveable-item { 
+		height: 14em;
+		width: 30em;
+		margin-top: 15px;
+		padding: 20px;
+		cursor: pointer;
+		background: #f3f3f3;
+		//background: -moz-linear-gradient(90deg, #bbb 0%, #fcfcfc 100%);
+		//background: -webkit-gradient(linear, left bottom, left top, color-stop(0.0, #bbb), color-stop(1.0, #fcfcfc));
+		border: 2px solid #999;
+		overflow: hidden;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px 10px 10px 10px;
+	    box-shadow: 3px 3px 7px #777; 
+		
+   }	
+.roundabout-in-focus { cursor: auto; }
+
+
+
+
+
+
+div.glassDiv {
+   width:30%;
+   color:#fff;
+   border-radius: 2px 2px 2px 2px;
+   background: rgba(0,0,0,0.25);
+   box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+   -o-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+   -webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+   -moz-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+}
+
+
+
+/* Our Leaders
+-------------------------------------------------------------------*/
+
+#ourLeaders {
+	margin: auto;
+   	margin-top: 20px;
+	width: 90%;	
+}
+
+#ourLeaders p {
+	   font-size:13px;	
+	   line-height: 15px;
+       padding: 2px;
+   	   margin: 10px;
+}
+
+#ourLeaders h5 {
+   	   margin-left: 10px;
+	   font-size:14px;	
+	   font-weight: bold;
+}
+
+   div#ourLeaders img {
+   	   margin: 10px;
+}
+
+.rowWrapper {
+	float: left;
+	position: relative;
+	margin-top: 50px;
+	left: 50%;
+}
+
+
+   .bCard { 
+	   width: 360px; 
+	   height: 220px; 
+	   padding: 10px;
+	   text-align: justify; 
+	   border:solid 1px #cecece;
+	   cursor:move; 
+   }
+   
+
+   
+   .bCard .hover {
+	   border:solid 5px #cecece;   
+   }
+   
+   .bCard1 {
+          background:#ffffff url('/images/content/logo/logo_01.jpg') no-repeat bottom right;
+          float: left;
+   }
+   .bCard2 {
+          background:#ffffff url('/images/content/logo/logo_02.jpg') no-repeat bottom left;
+          float:right;
+          
+   }
+   .bCard3 {
+          background:#ffffff url('/images/content/logo/logo_03.jpg') no-repeat top right;
+	position: relative;
+	left: -50%;
+   }
+   .bCard4 {
+          background:#ffffff url('/images/content/logo/logo_04.jpg') no-repeat top left;
+   }
+
+
+
+
+
+/**
+ * Non-semantic helper classes: please define your styles before this section.
+ */
+
+/* For image replacement */
+.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+
+/* Hide for both screenreaders and browsers:
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hidden { display: none; visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders: by Jon Neal.
+  www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: drupal.org/node/897638 */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* The Magnificent Clearfix: Updated to prevent margin-collapsing on child elements.
+   j.mp/bestclearfix */
+.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+.clearfix:after { clear: both; }
+/* Fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
+.clearfix { zoom: 1; }
+
+
+
+/**
+ * Media queries for responsive design.
+ *
+ * These follow after primary styles so they will successfully override.
+ */
+
+@media all and (orientation:portrait) {
+  /* Style adjustments for portrait mode goes here */
+
+}
+
+@media all and (orientation:landscape) {
+  /* Style adjustments for landscape mode goes here */
+
+}
+
+/* Grade-A Mobile Browsers (Opera Mobile, Mobile Safari, Android Chrome)
+   consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
+@media screen and (max-device-width: 480px) {
+
+
+  /* Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you: j.mp/textsizeadjust */
+  /* html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */
+}
+
+
+/**
+ * Print styles.
+ *
+ * Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/
+ */
+@media print {
+  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important;
+  -ms-filter: none !important; } /* Black prints faster: sanbeiji.com/archives/953 */
+  a, a:visited { color: #444 !important; text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */
+  tr, img { page-break-inside: avoid; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3{ page-break-after: avoid; }
+}
+
+
+
+
+.riaHead {
+  margin: 0 10px 0 10px;
+  font:16px/25px Arial;	
+  cursor:pointer;
+}
+
+.riaHead.selected, .riaHead:hover{
+	font-weight: bold;
+	border-bottom: 3px solid #ff9c08;
+}
+
+#mailTo a {
+	color: #444;	
+}
+
+.rolloverImg {   
+	opacity:0.4;
+	filter:alpha(opacity=40);
+	vertical-align:middle;
+	color: #444;
+}
+
+
+.rolloverImg:hover {   
+	opacity:1.0;
+	filter:alpha(opacity=100);
+	cursor: pointer;
+}
+
+
+.postitImg {   
+	opacity:0.8;
+	filter:alpha(opacity=80);
+	vertical-align:middle;
+	color: #444;
+	z-index: 100;
+}
+
+
+.postitImg:hover {   
+	opacity:1.0;
+	filter:alpha(opacity=100);
+	cursor: pointer;
+}

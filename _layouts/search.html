@@ -1,0 +1,11 @@
+{% include header.html %}
+
+	<ul id="crumbs">
+		<li><a href="/">home</a></li>
+		<li>{{ page.title }}</li>
+	</ul>
+	<div id="post_content">
+		{{ content }}
+	</div>
+{% include footer_fixed.html %}
+{% include footer_search.html %}
